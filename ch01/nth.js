@@ -3,7 +3,6 @@
 
 // we can be functional:
 // nth(myArray, n)
-
 var _ = require('lodash'),
 	letters = ['a', 'b', 'c', 'd']
 
