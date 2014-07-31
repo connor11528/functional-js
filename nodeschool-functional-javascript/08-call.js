@@ -1,20 +1,19 @@
-/* 
-Write a function `duckCount` that returns the number of arguments passed to it which
-have a property 'quack' defined directly on them. Do not match values inherited
-from prototypes. 
+// Fuction#call allows us to invoke any function with an altered this value
+// first arg to call becomes 'this' value
+// rest of args get passed to the function
 
-*/
-
+// returns # of args passed to it which have 
+// 'quack' property defined on them
 
 function duckCount() {
+	// create array from arguments (an "array like object")
+	return Array.prototype.slice.call(arguments, 0).filter(function(obj){
+		// creates new array with all objects that pass the test
+		
+		// obj has hasOwnProperty method and also 'quack'
+		return Object.prototype.hasOwnProperty.call(obj, 'quack')	// boolean
+	}).length
 
 }
-
-var notDuck = Object.create({quack: true})
-var duck = {quack: true}
-
-console.log(
-duckCount(duck, notDuck) // 1
-);
 
 module.exports = duckCount
